@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events" version="1.1" baseProfile="full" viewBox="-111 -208.5 319.5 319.5">
+	<g>
+		<g>
+			<polygon points="200 7.10543e-15 197.5 -10 202.5 -10 " stroke="#000000" />
+			<path fill="none" d=" M-10,-20 L10,-20 M10,-20 L200,-10 M200,-10 L200,7.10543e-15" stroke="#000000" />
+		</g>
+		<g>
+			<polygon points="180 7.10543e-15 177.5 -10 182.5 -10 " stroke="#000000" />
+			<path fill="none" d=" M-15,-40 L10,-40 M10,-40 L180,-10 M180,-10 L180,7.10543e-15" stroke="#000000" />
+		</g>
+		<g>
+			<polygon points="160 0 157.5 -10 162.5 -10 " stroke="#000000" />
+			<path fill="none" d=" M-20,-60 L10,-60 M10,-60 L160,-10 M160,-10 L160,0" stroke="#000000" />
+		</g>
+		<g>
+			<polygon points="140 0 137.5 -10 142.5 -10 " stroke="#000000" />
+			<path fill="none" d=" M-25,-80 L10,-80 M10,-80 L140,-10 M140,-10 L140,0" stroke="#000000" />
+		</g>
+		<g>
+			<polygon points="120 0 117.5 -10 122.5 -10 " stroke="#000000" />
+			<path fill="none" d=" M-30,-100 L10,-100 M10,-100 L120,-10 M120,-10 L120,0" stroke="#000000" />
+		</g>
+		<g>
+			<polygon points="100 3.55271e-15 97.5 -10 102.5 -10 " stroke="#000000" />
+			<path fill="none" d=" M-35,-120 L10,-120 M10,-120 L100,-10 M100,-10 L100,3.55271e-15" stroke="#000000" />
+		</g>
+		<g>
+			<polygon points="80 3.55271e-15 77.5 -10 82.5 -10 " stroke="#000000" />
+			<path fill="none" d=" M-40,-140 L10,-140 M10,-140 L80,-10 M80,-10 L80,3.55271e-15" stroke="#000000" />
+		</g>
+		<g>
+			<polygon points="60 0 57.5 -10 62.5 -10 " stroke="#000000" />
+			<path fill="none" d=" M-45,-160 L10,-160 M10,-160 L60,-10 M60,-10 L60,0" stroke="#000000" />
+		</g>
+		<g>
+			<polygon points="40 1.77636e-15 37.5 -10 42.5 -10 " stroke="#000000" />
+			<path fill="none" d=" M-50,-180 L10,-180 M10,-180 L40,-10 M40,-10 L40,1.77636e-15" stroke="#000000" />
+		</g>
+		<g>
+			<polygon points="20 0 17.5 -10 22.5 -10 " stroke="#000000" />
+			<path fill="none" d=" M-55,-200 L10,-200 M10,-200 L20,-10 M20,-10 L20,0" stroke="#000000" />
+		</g>
+	</g>
+	<g>
+		<rect x="-20" y="-27.5" width="20" height="15" />
+	</g>
+	<g>
+		<rect x="192.5" y="0" width="15" height="110" />
+	</g>
+	<g>
+		<rect x="-30" y="-47.5" width="30" height="15" />
+	</g>
+	<g>
+		<rect x="172.5" y="0" width="15" height="100" />
+	</g>
+	<g>
+		<rect x="-40" y="-67.5" width="40" height="15" />
+	</g>
+	<g>
+		<rect x="152.5" y="0" width="15" height="90" />
+	</g>
+	<g>
+		<rect x="-50" y="-87.5" width="50" height="15" />
+	</g>
+	<g>
+		<rect x="132.5" y="0" width="15" height="80" />
+	</g>
+	<g>
+		<rect x="-60" y="-107.5" width="60" height="15" />
+	</g>
+	<g>
+		<rect x="112.5" y="0" width="15" height="70" />
+	</g>
+	<g>
+		<rect x="-70" y="-127.5" width="70" height="15" />
+	</g>
+	<g>
+		<rect x="92.5" y="0" width="15" height="60" />
+	</g>
+	<g>
+		<rect x="-80" y="-147.5" width="80" height="15" />
+	</g>
+	<g>
+		<rect x="72.5" y="0" width="15" height="50" />
+	</g>
+	<g>
+		<rect x="-90" y="-167.5" width="90" height="15" />
+	</g>
+	<g>
+		<rect x="52.5" y="0" width="15" height="40" />
+	</g>
+	<g>
+		<rect x="-100" y="-187.5" width="100" height="15" />
+	</g>
+	<g>
+		<rect x="32.5" y="0" width="15" height="30" />
+	</g>
+	<g>
+		<rect x="-110" y="-207.5" width="110" height="15" />
+	</g>
+	<g>
+		<rect x="12.5" y="0" width="15" height="20" />
+	</g>
+</svg>

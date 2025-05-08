@@ -236,7 +236,7 @@ private:
 	 * \param end the end point of the edge segment the arrow head will be placed on, this will usually be modified
 	 * \param adj the adjacency entry
 	 */
-	void drawArrowHead(pugi::xml_node xmlNode, const DPoint& start, DPoint& end, adjEntry adj);
+	void drawArrowHead(pugi::xml_node xmlNode, const DPoint& start, DPoint& end, adjEntry adj, bool orth = false);
 
 	/**
 	 * Returns whether an edge arrow is to be drawn.
