@@ -143,7 +143,7 @@ static void testGenericPolyLine(const string typeName){
 
 }
 
-/*testing plan: constructors: smae point, same coordinates, (intersection type for same line - might be irrelevant)*/ 
+/*testing plan: constructors: sAME point, same coordinates, (intersection type for same line - might be irrelevant)*/ 
 template<typename T>
 static void testGenericLine(const string typeName){
 	describe(typeName, [&](){
@@ -200,17 +200,7 @@ static void testGenericLine(const string typeName){
 
 }
 
-/*testing plan: */ 
-template<typename T>
-static void testGenericSegment(const string typeName){
-	describe(typeName, [&](){
-		using GenericSegmentClass = GenericSegment<GenericPoint<T>>;
-	
-	
-	});
-
-}
-
+// Test für generic segmnet?
 
 go_bandit([]() {
 	describe("GenericPolyLine", []() {

@@ -54,8 +54,13 @@ int main()
 
 	pl.call(GA);
 
+	GraphIO::SVGSettings settings;
+    settings.orthogonal(false);
+	string name = "output-ERDiagram.svg";
+
 	GraphIO::write(GA, "output-ERDiagram.gml", GraphIO::writeGML);
-	GraphIO::write(GA, "output-ERDiagram.svg", GraphIO::drawSVG);
+	//GraphIO::write(GA, "output-ERDiagram.svg", GraphIO::drawSVG);
+	GraphIO::drawSVG(GA,name,settings);
 
 	return 0;
 }

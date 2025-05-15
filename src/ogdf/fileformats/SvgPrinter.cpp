@@ -67,6 +67,9 @@ GraphIO::SVGSettings::SVGSettings() {
 	m_fontFamily = "Arial";
 	m_width = "";
 	m_height = "";
+	// addition
+	m_orthogonal = true;
+	
 }
 
 bool SvgPrinter::draw(std::ostream& os) {
@@ -637,15 +640,14 @@ pugi::xml_node SvgPrinter::drawCurve(pugi::xml_node xmlNode, edge e, List<DPoint
 }
 
 void SvgPrinter::drawArrowHead(pugi::xml_node xmlNode, const DPoint& start, DPoint& end,
-		adjEntry adj, bool orth) {
+		adjEntry adj) {
 	const double dx = end.m_x - start.m_x;
 	const double dy = end.m_y - start.m_y;
 	const double size = getArrowSize(adj);
 	node v = adj->theNode();
 
 	pugi::xml_node arrowHead;
-
-	if (orth == true){
+	if (m_settings.orthogonal() == true){
 		if (dx == 0) {
 			int sign = dy > 0 ? 1 : -1;
 			double y = m_attr.y(v) - m_attr.height(v) / 2 * sign;

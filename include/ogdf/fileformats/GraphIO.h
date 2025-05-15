@@ -130,10 +130,12 @@ public:
 		int m_fontSize;
 		double m_curviness;
 		bool m_bezierInterpolation;
+		bool m_orthogonal;
 		string m_fontColor;
 		string m_fontFamily;
 		string m_width;
 		string m_height;
+		
 
 	public:
 		SVGSettings();
@@ -161,6 +163,9 @@ public:
 
 		//! Returns the default height
 		const string& height() const { return m_height; }
+
+		//! Returns if the edges should be orthogonal
+		bool orthogonal() const { return m_orthogonal; }
 
 		//! Sets the size of the margin around the drawing to \p m.
 		void margin(double m) { m_margin = m; }
@@ -196,6 +201,9 @@ public:
 		 * The value should include a unit of measure (e.g., percentage for relative height or pixel values).
 		 */
 		void height(const string& height) { m_height = height; }
+
+		//! Sets if the edges should be parallel to each other
+		void orthogonal(bool orth) { m_orthogonal = orth; }
 	};
 
 	/**
