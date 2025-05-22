@@ -42,12 +42,6 @@ template<typename T>
 static void testGenericPolyLine(const string typeName){
 	describe(typeName, [&](){
 		using GenericPolylineClass = GenericPolyline<GenericPoint<T> >;
-		/*std::unique_ptr<GenericPolylineClass> genericPolyline;
-		
-		before_each([&]() {
-			genericPolyline.reset(new GenericPolylineClass());
-
-		});*/
 
 		describe("normalize, trivial cases", [&](){
 			it("works on an empty polyline", [&]() {
@@ -143,14 +137,12 @@ static void testGenericPolyLine(const string typeName){
 
 }
 
-/*testing plan: constructors: smae point, same coordinates, (intersection type for same line - might be irrelevant)*/ 
+
 template<typename T>
 static void testGenericLine(const string typeName){
 	describe(typeName, [&](){
 		using GenericLineClass = GenericLine<GenericPoint<T> >;
 
-
-		// same slope/parrallel, same line
 		describe("intersection", [&](){
 			GenericPoint<T> p0(0, 0);
 			GenericPoint<T> p1(1, 1);
@@ -177,34 +169,27 @@ static void testGenericLine(const string typeName){
 		describe("constructor, non-trivial cases", []() {
 			GenericPoint<T> p0(0, 0);
 			GenericPoint<T> p1(0, 0);
-			// what is it supposed to do? what should happen? 
+			
 
-			it("works with same coordinates ", [&]() {
+			it("works with  the same coordinates ", [&]() {
 				GenericLineClass line(p0, p1);
 				std::cout << line.isHorizontal();
 				std::cout << line.isVertical();
-				//AssertThat(True, line.isHorizontal());
+				AssertThat(line.isHorizontal(), Equals(true));
+				AssertThat(line.isVertical(), Equals(true));
+				
 			});
 
-			it("works with same point ", [&]() {
+			it("works with the same point ", [&]() {
 				GenericLineClass line(p0, p0);
 				std::cout << line.isHorizontal();
 				std::cout << line.isVertical();
-				//AssertThat(True, line.isHorizontal());
+				AssertThat(line.isHorizontal(), Equals(true));
+				AssertThat(line.isVertical(), Equals(true));
+	
 			});
 
 		});
-	
-	
-	});
-
-}
-
-/*testing plan: */ 
-template<typename T>
-static void testGenericSegment(const string typeName){
-	describe(typeName, [&](){
-		using GenericSegmentClass = GenericSegment<GenericPoint<T>>;
 	
 	
 	});
@@ -222,99 +207,3 @@ go_bandit([]() {
 	});
 });
 
-
-
-/* go_bandit([]() {
-	describe("DPolyline", []() {
-		describe("normalize, trivial cases", []() {
-			it("works on an empty polyline", []() {
-				DPolyline dpline;
-				dpline.normalize();
-				AssertThat(dpline, Equals(dpline));
-			});
-
-			it("works on a polyline with one point", []() {
-				DPolyline dpline({DPoint(1, 1)});
-				dpline.normalize();
-				AssertThat(dpline, Equals(dpline));
-			});
-
-			it("works on a polyline with two points", []() {
-				DPolyline dpline({DPoint(1, 1), DPoint(2, 2)});
-				dpline.normalize();
-				AssertThat(dpline, Equals(dpline));
-			});
-
-			it("works on a polyline with three points", []() {
-				DPolyline dpline({DPoint(1, 1), DPoint(2, 2), DPoint(3, 3)});
-				DPolyline result({DPoint(1, 1), DPoint(3, 3)});
-				dpline.normalize();
-				AssertThat(dpline, Equals(result));
-			});
-		});
-
-		describe("normalize, non-trivial cases", []() {
-			DPoint p0(0, 0);
-			DPoint p1(1, 1); // 180 degree
-			DPoint p2(2, 2); // 180 degree
-			DPoint p3(3, 3); // 135 degree
-			DPoint p4(3, 4); // 90 degree
-			DPoint p5(4, 4); // 90 degree
-			DPoint p6(4, 6); // 45 degree
-			DPoint p7(5, 5); // 45 degree
-			DPoint p8(5, 6); // 135 degree
-			DPoint p9(6, 7); // 135 degree
-			DPoint p10(7, 7); // 180 degree
-			DPoint p11(8, 7); // 180 degree
-			DPoint p12(9, 7); // 90 degree
-			DPoint p13(9, 8);
-			DPolyline dpline;
-
-			before_each([&]() {
-				dpline = DPolyline({p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12});
-			});
-
-			it("works without parameters", [&]() {
-				DPolyline result({p1, p3, p4, p5, p6, p7, p8, p9, p12});
-				dpline.normalize();
-				AssertThat(dpline, Equals(result));
-			});
-
-			it("works with a minimum angle of 3/4 Pi", [&]() {
-				DPolyline result({p1, p4, p5, p6, p7, p9, p12});
-				dpline.normalize(0.75 * Math::pi);
-				AssertThat(dpline, Equals(result));
-			});
-
-			it("works with a minimum angle of 1/2 Pi", [&]() {
-				DPolyline result({p1, p12});
-				dpline.normalize(Math::pi_2);
-				AssertThat(dpline, Equals(result));
-			});
-
-			it("works with source/target points", [&]() {
-				DPolyline result({p3, p4, p5, p6, p7, p8, p9, p12});
-				dpline.normalize(p0, p13);
-				AssertThat(dpline, Equals(result));
-			});
-
-			it("works with source/target points and a minimum angle of 3/4 Pi", [&]() {
-				DPolyline result({p4, p5, p6, p7, p9, p12});
-				dpline.normalize(p0, p13, 0.75 * Math::pi);
-				AssertThat(dpline, Equals(result));
-			});
-
-			it("works with source/target points and a minimum angle of 1/2 Pi", [&]() {
-				dpline.normalize(p0, p13, Math::pi_2);
-				AssertThat(dpline.empty(), IsTrue());
-			});
-
-			it("works with source/target points equaling the polyline's first/last point", [&]() {
-				DPolyline result({p3, p4, p5, p6, p7, p8, p9});
-				dpline.normalize(DPoint(p1), DPoint(p12));
-				AssertThat(dpline, Equals(result));
-			});
-		});
-	});
-});
- */
