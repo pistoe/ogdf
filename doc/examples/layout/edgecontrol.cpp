@@ -1,3 +1,7 @@
+/** \file
+ *  \brief Example on how to manually change edge parallelity
+ */
+
 #include <ogdf/basic/GraphAttributes.h>
 #include <ogdf/basic/GraphList.h>
 #include <ogdf/basic/Graph.h>
@@ -54,9 +58,14 @@ int main()
 
 	pl.call(GA);
 
+    // create individual settings for SVGPrinter to use instead of presets
+	GraphIO::SVGSettings settings;
+    settings.orthogonal(false); //select that the edges should not run orthogonal/parrallel to each other
+    // alternative setting: settings.autoorth(true); select that edge orthogonality should be determined automatically based on the node type
+	string name = "output-ERDiagram.svg";
 
 	GraphIO::write(GA, "output-ERDiagram.gml", GraphIO::writeGML);
-	GraphIO::write(GA, "output-ERDiagram.svg", GraphIO::drawSVG);
+	GraphIO::drawSVG(GA,name,settings);
 
 	return 0;
 }

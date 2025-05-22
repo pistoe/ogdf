@@ -67,8 +67,10 @@ GraphIO::SVGSettings::SVGSettings() {
 	m_fontFamily = "Arial";
 	m_width = "";
 	m_height = "";
-	// addition
+	// new options to toggle edges running in parrallel 
 	m_orthogonal = true;
+	// toggle edges automatically based on node shape
+	m_autoorth = false;
 	
 }
 
@@ -645,9 +647,19 @@ void SvgPrinter::drawArrowHead(pugi::xml_node xmlNode, const DPoint& start, DPoi
 	const double dy = end.m_y - start.m_y;
 	const double size = getArrowSize(adj);
 	node v = adj->theNode();
-
 	pugi::xml_node arrowHead;
-	if (m_settings.orthogonal() == true){
+
+	bool orth = false;
+
+	if (m_settings.autoorth() == false && m_settings.orthogonal() == true){
+		orth = true;
+	} else if (m_settings.autoorth() == true ){
+		if (m_attr.shape(v) == Shape::Rect || m_attr.shape(v) == Shape::Rect){ // scoped enum
+			orth = true;
+		}
+	}
+	
+	if (orth == true){
 		if (dx == 0) {
 			int sign = dy > 0 ? 1 : -1;
 			double y = m_attr.y(v) - m_attr.height(v) / 2 * sign;

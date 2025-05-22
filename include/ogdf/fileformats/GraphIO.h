@@ -131,6 +131,7 @@ public:
 		double m_curviness;
 		bool m_bezierInterpolation;
 		bool m_orthogonal;
+		bool m_autoorth;
 		string m_fontColor;
 		string m_fontFamily;
 		string m_width;
@@ -164,8 +165,11 @@ public:
 		//! Returns the default height
 		const string& height() const { return m_height; }
 
-		//! Returns if the edges should be orthogonal
+		//! Returns if the edges should run in parallel
 		bool orthogonal() const { return m_orthogonal; }
+	
+		//! Returns if the edge parallelity should be determined automatically
+		bool autoorth() const { return m_autoorth; }
 
 		//! Sets the size of the margin around the drawing to \p m.
 		void margin(double m) { m_margin = m; }
@@ -204,6 +208,9 @@ public:
 
 		//! Sets if the edges should be parallel to each other
 		void orthogonal(bool orth) { m_orthogonal = orth; }
+
+		//! Sets if the edge parallelity should be determined automatically
+		void autoorth(bool automatic) { m_autoorth = automatic; }
 	};
 
 	/**
