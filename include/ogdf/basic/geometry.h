@@ -516,7 +516,9 @@ public:
 
 	/**
 	 * Determines if \p line is left or right of this line.
-	 *doc/examples/special/CMakeLists.txtine.
+	 * @param line is the second line.
+	 * \return a positive number if \p line is left of this line, and
+	 *         a negative number if \p line is right of this line.
 	 */
 	double det(const GenericLine<PointType>& line) const {
 		return dx() * line.dy() - dy() * line.dx();
